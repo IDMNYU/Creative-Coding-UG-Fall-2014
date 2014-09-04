@@ -29,16 +29,8 @@ void draw()
   float dx = (mouseX-x1)/20.;
   float dy = (mouseY-y1)/20.;
   
-  float drunkx = 0.;
-  drunkx += random(-20, 20);
-  drunkx += random(-20, 20);
-  drunkx += random(-20, 20);
-  drunkx = drunkx / 3.;
-  float drunky = 0.;
-  drunky += random(-20, 20);
-  drunky += random(-20, 20);
-  drunky += random(-20, 20);
-  drunky = drunky / 3.;
+  float drunkx = myDrunkenCurve(-20, 20, 30);
+  float drunky = myDrunkenCurve(-20, 20, 30);;
   
   //println(dx + " " + dy);
   
@@ -46,15 +38,17 @@ void draw()
   x2 = x1+random(min(0, dx), max(0, dx))+drunkx;
   y2 = y1+random(min(0, dy), max(0, dy))+drunky;
   
+  float weight = sqrt((mouseX-pmouseX)*(mouseX-pmouseX)+(mouseY-pmouseY)*(mouseY-pmouseY));
+
   // draw the line
+  strokeWeight(max(5, weight/2));
   noFill(); // don't draw a fill
   stroke(255, 255, 192, 100); // set the stroke to the nice purple
   line(x1, y1, x2, y2); // x1, y1, x2, y2
   
   // draw the circle
-  float radius = random(5, 20);
   fill(255, 192, 0, 100); // set the fill to yellow
-  ellipse(x2, y2, radius, radius); // draw a circle
+  ellipse(x2, y2, weight, weight); // draw a circle
   
   // stash our new x and y for the next round
   x1 = x2;
@@ -72,6 +66,22 @@ void draw()
 void keyReleased()
 {
   if(key==' ') background(0, 0, 0);
+  
+}
+
+float myDrunkenCurve(float min, float max, int Q)
+{
+  
+  float value = 0.;
+  
+  for(int i = 0; i < Q; i++) // i = i + 1
+  {
+    value+=random(min, max);
+  }
+ 
+  value = value / float(Q);
+  
+  return(value);
   
 }
 
