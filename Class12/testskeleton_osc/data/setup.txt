@@ -1,0 +1,15 @@
+// joint names:
+// HEAD, NECK, TORSO
+// LEFTHAND, RIGHTHAND, LEFTELBOW, RIGHTELBOW 
+// LEFTSHOULDER, RIGHTSHOULDER
+// LEFTHIP, RIGHTHIP, LEFTKNEE, RIGHTKNEE
+// LEFTFOOT, RIGHTFOOT
+// TRIGGER joint1, joint2, direction, thresh, timing, label, debug
+// TOGGLE joint1, joint2, direction, thresh, label, debug
+// CONTROLLER joint1, joint2, min, max, axis, absflag, label, debug
+// MOTION joint1, min, max, label, debug
+TRIGGER RIGHTHAND LEFTSHOULDER 0 200. 100. handtoshoulder 1
+TRIGGER LEFTHAND RIGHTSHOULDER 0 200. 100. othershoulder 1
+TOGGLE LEFTHAND RIGHTHAND 0 200. touchhands 1
+CONTROLLER LEFTHAND RIGHTHAND 0 1000 -1 0 handdistance 1
+MOTION HEAD 0 20 headbang 1
