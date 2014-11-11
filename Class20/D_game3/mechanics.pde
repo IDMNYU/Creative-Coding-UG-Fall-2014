@@ -1,0 +1,6 @@
+void makeHarder()
+{
+  NUMWORDS*=HARDFACTOR;
+  VELOCITY*=HARDFACTOR;
+  
+}
