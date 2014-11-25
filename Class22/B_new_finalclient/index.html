@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <title>craziness</title>
+
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/p5.js/0.3.11/p5.js"></script>
+    <script>
+      var socket = io();
+      socket.on('light', function(msg){
+        $('#light').html(msg);
+      });
+      socket.on('sound', function(msg){
+        $('#sound').html(msg);
+      });
+      socket.on('humid', function(msg){
+        $('#humid').html(msg);
+      });
+      socket.on('tempC', function(msg){
+        $('#tempC').html(msg);
+      });
+      socket.on('tempF', function(msg){
+        $('#tempF').html(msg);
+      });
+      socket.on('heatI', function(msg){
+        $('#heatI').html(msg);
+      });
+      socket.on('proxi', function(msg){
+        $('#proxi').html(msg);
+      });
+
+    </script>
+
+  </head>
+  <body bgcolor="#000000" text="#FFFFFF">
+	<b>is Luke in his office at MAGNET?</b><br><br>
+    light: <div id="light">some stuff</div>
+    sound: <div id="sound">some other stuff</div>
+    humid: <div id="humid">some crap</div>
+    tempC: <div id="tempC">some things</div>
+    tempF: <div id="tempF">quesadillas</div>
+    heatI: <div id="heatI">yes</div>
+    proxi: <div id="proxi">no</div>
+
+<br>
+<img src="me.jpg"><br>
+
+  </body>
+</html>
+
