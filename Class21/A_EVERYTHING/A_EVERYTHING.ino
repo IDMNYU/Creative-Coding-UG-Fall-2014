@@ -68,17 +68,17 @@ void loop() {
   proximityValue = digitalRead(PIRPIN);  // read input value
 
   // PRINTING
-  Serial.print(lightValue); 
+  Serial.print(lightValue, 6); 
   Serial.print(" "); // space
-  Serial.print(soundValue);
+  Serial.print(soundValue, 6);
   Serial.print(" "); // space
-  Serial.print(humidity);
+  Serial.print(humidity, 2);
   Serial.print(" "); // space
-  Serial.print(celsius);
+  Serial.print(celsius, 2);
   Serial.print(" "); // space
-  Serial.print(fahrenheit);
+  Serial.print(fahrenheit, 2);
   Serial.print(" "); // space
-  Serial.print(heatIndex);
+  Serial.print(heatIndex, 2);
   Serial.print(" "); // space
   Serial.print(proximityValue);
   Serial.println();
